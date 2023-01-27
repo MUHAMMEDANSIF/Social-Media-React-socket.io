@@ -1,9 +1,12 @@
 /* eslint-disable linebreak-style */
+const env = require('dotenv').config
 const io = require('socket.io')(8000, {
   cors: {
-    origin: 'http://localhost:3000',
+    origin: process.env.CLIENT_URL,
   },
 });
+
+console.log('Socket.io connected successfully');
 
 let activeUser = [];
 
