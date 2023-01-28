@@ -1,7 +1,11 @@
 /* eslint-disable linebreak-style */
 const env = require('dotenv')
 env.config();
-const io = require('socket.io')(8000);
+const io = require('socket.io')(8000,{
+  cors:{
+    origin:process.env.CLIENT_URL,
+  }
+});
 
 console.log('Socket.io connected successfully');
 
